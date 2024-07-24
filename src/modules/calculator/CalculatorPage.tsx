@@ -1,23 +1,21 @@
 import { useState } from "react"
-import { ICalculatorForm, IRoom } from "../../common/types/ICalculatorForm"
-import { Button, Card, Form, Input, InputNumber, Radio, Select, Space, Typography } from 'antd'
+import { Button, Card, Form, InputNumber, Radio, Select, Space, Typography } from 'antd'
 import s from './styles/calculatorPage.module.css'
-import Operation from "antd/es/transfer/operation"
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons"
 import { IOption } from "../../common/types/IOption"
 import { RoomTypes } from "../../common/types/RoomTypes"
 import { CostTable } from "./components/CostTable"
 import { formatNumberCombined } from "../../common/utils/formattingUtils"
 
-const defaultForm: ICalculatorForm = {
-    city: '',
-    roomCount: 0,
-    residentialComplex: '',
-    area: 0,
-    ceilingHeight: 0,
-    rooms: [],
-    renovationType: 'ECONOM'
-}
+// const defaultForm: ICalculatorForm = {
+//     city: '',
+//     roomCount: 0,
+//     residentialComplex: '',
+//     area: 0,
+//     ceilingHeight: 0,
+//     rooms: [],
+//     renovationType: 'ECONOM'
+// }
 
 const roomTypes: IOption[] = [
     {
@@ -51,29 +49,29 @@ const roomCostPerSquareMeterMap = {
 }
 
 export const CalculatorPage = (): JSX.Element => {
-    const [form, setForm] = useState<ICalculatorForm>({...defaultForm, rooms: []})
+    // const [form, setForm] = useState<ICalculatorForm>({...defaultForm, rooms: []})
     const [costData, setCostData] = useState<any>(null) 
 
-    const onFormChange = (key: string, value: number | string | null) => {
-        if (key === 'roomCount') {
-            const temp = { ...form, [key]: value }
-            const tempRooms: IRoom[] = [
-                { name: 'Санузел', area: 0 },
-                { name: 'Балкон', area: 0 }
-            ]
-            for (let i = 0; i < Number(value); i++) {
-                tempRooms.push({ name: `Комната ${i+1}`, area: 0 })
-            }
-            temp.rooms = tempRooms
-            // @ts-ignore
-            setForm(temp)
-            console.log(temp)
-            return
-        }
-        const temp = { ...form, [key]: value }
-        console.log(temp)
-        setForm(temp)
-    }
+    // const onFormChange = (key: string, value: number | string | null) => {
+    //     if (key === 'roomCount') {
+    //         const temp = { ...form, [key]: value }
+    //         const tempRooms: IRoom[] = [
+    //             { name: 'Санузел', area: 0 },
+    //             { name: 'Балкон', area: 0 }
+    //         ]
+    //         for (let i = 0; i < Number(value); i++) {
+    //             tempRooms.push({ name: `Комната ${i+1}`, area: 0 })
+    //         }
+    //         temp.rooms = tempRooms
+    //         // @ts-ignore
+    //         setForm(temp)
+    //         console.log(temp)
+    //         return
+    //     }
+    //     const temp = { ...form, [key]: value }
+    //     console.log(temp)
+    //     setForm(temp)
+    // }
 
     const onFinish = (formData: any) => {
         console.log('FORM_DATA:', formData)

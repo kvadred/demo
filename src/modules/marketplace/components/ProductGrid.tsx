@@ -1,10 +1,8 @@
-import { Row, Col, Card, Space } from "antd"
+import { Row, Col, Card } from "antd"
 import { IProduct } from "../types/IProduct"
 import { PlusCircleOutlined } from "@ant-design/icons";
 import { toastUtils } from "../../../common/utils/toastUtils";
 // import 'antd/dist/reset.css'
-
-const { Meta } = Card;
 
 // const products = [
 //   {

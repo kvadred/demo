@@ -1,11 +1,10 @@
 import { Card, Divider } from 'antd'
-import ceramics1Image from './../../../assets/product-images/ceramics-1.jpg'
 
 const { Meta } = Card
 
 
 
-export const ProductCard = ({ title, price, image, additinals }: Props): JSX.Element => {
+export const ProductCard = ({ title, price, image, additinals }: any): JSX.Element => {
     return (
         <Card
             hoverable
@@ -18,7 +17,7 @@ export const ProductCard = ({ title, price, image, additinals }: Props): JSX.Ele
         >
             <Meta title={title} description={price} />
             <Divider />
-            {additinals.map(additinal => <p>{additinal.name}: <b>{additinal.value}</b></p>)}
+            {additinals.map((additinal: any) => <p>{additinal.name}: <b>{additinal.value}</b></p>)}
         </Card>
     )
 }
