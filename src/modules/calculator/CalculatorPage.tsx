@@ -212,11 +212,8 @@ export const CalculatorPage = (): JSX.Element => {
             </Form>
             {costData && 
             <>
-                <section style={{ marginTop: '1rem' }}>
-                    <CostTable material={costData.material} service={costData.service} totalCost={costData.totalCost} costPerSquareMeter={costData.costPerSquareMeter} />
-                </section>
                 <section>
-                    <div style={{ marginTop: '3rem' }}>
+                    <div style={{ marginTop: '1rem' }}>
                         <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', width: '100%', alignItems: 'center', flexWrap: 'wrap' }}>
                         {/* <Space direction="horizontal" size={16} align="center"> */}
                             <Card title="Компания 1" style={{ width: 300, height: 200 }}>
@@ -232,6 +229,9 @@ export const CalculatorPage = (): JSX.Element => {
                         {/* </Space> */}
                         </div>
                     </div>
+                </section>
+                <section style={{ marginTop: '1rem' }}>
+                    <CostTable material={costData.material} service={costData.service} totalCost={costData.totalCost} costPerSquareMeter={costData.costPerSquareMeter} />
                 </section>
             </>
             }
