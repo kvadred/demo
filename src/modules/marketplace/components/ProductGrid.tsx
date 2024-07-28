@@ -1,33 +1,15 @@
 import { Row, Col, Card } from "antd"
 import { IProduct } from "../types/IProduct"
-import { PlusCircleOutlined } from "@ant-design/icons";
-import { toastUtils } from "../../../common/utils/toastUtils";
-// import 'antd/dist/reset.css'
-
-// const products = [
-//   {
-//     id: 1,
-//     title: 'Product 1',
-//     description: 'Description of Product 1',
-//     price: '11 990 тг/м²',
-//     image: 'https://via.placeholder.com/150',
-//   },
-//   {
-//     id: 2,
-//     title: 'Product 2',
-//     description: 'Description of Product 2',
-//     price: '12 990 тг/м²',
-//     image: 'https://via.placeholder.com/150',
-//   },
-//   // Add more products as needed
-// ];
+import { CheckCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
 
 interface Props {
     products: IProduct[]
+    addToCart: (product: IProduct) => void,
+    removeFromCart: (title: string) => void,
+    cart: IProduct[]
 }
 
-const ProductGrid = ({ products }: Props) => {
-    const addToCart = () => toastUtils.success('Добавлено в корзину')
+const ProductGrid = ({ products, addToCart, cart, removeFromCart }: Props) => {
 
     return (
         <div style={{ padding: "30px" }}>
@@ -44,7 +26,11 @@ const ProductGrid = ({ products }: Props) => {
                                 <b>
                                     {product.price}
                                 </b>
-                                <PlusCircleOutlined onClick={addToCart} />
+                                {
+                                    cart.find(it => it.title === product.title) ?
+                                    <CheckCircleOutlined onClick={() => removeFromCart(product.title)} style={{ color: 'green' }} />
+                                    : <PlusCircleOutlined onClick={() => addToCart(product)} />
+                                }
                             </div>
                         </Card>
                     </Col>

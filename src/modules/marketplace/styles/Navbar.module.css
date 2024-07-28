@@ -27,3 +27,22 @@
     transition: display 0.3s;
     z-index: 1000;
 }
+
+.cart {
+    position: absolute;
+    right: 1rem;
+    top: 3rem;
+    padding: 1rem;
+    background-color: rgb(255, 255, 255);
+    border-style: solid;
+    transition: display 0.3s;
+    z-index: 1000;
+}
+
+.cart-list-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+    min-width: max-content;
+    margin-top: 0.5rem;
+}

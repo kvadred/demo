@@ -1,16 +1,20 @@
 import Text from 'antd/es/typography/Text'
 import s from './../styles/Navbar.module.css'
-import { AppstoreFilled, ShoppingFilled } from '@ant-design/icons'
+import { AppstoreFilled, MinusCircleOutlined, ShoppingFilled } from '@ant-design/icons'
 import { Radio, RadioChangeEvent, Space } from 'antd'
 import { Dispatch, SetStateAction, useState } from 'react'
+import { IProduct } from '../types/IProduct'
 
 interface Props {
     category: string,
-    setCategory: Dispatch<SetStateAction<string>>
+    setCategory: Dispatch<SetStateAction<string>>,
+    removeFromCart: (title: string) => void,
+    cart: IProduct[]
 }
 
-export const Navbar = ({ category, setCategory }: Props): JSX.Element => {
+export const Navbar = ({ category, setCategory, cart, removeFromCart }: Props): JSX.Element => {
     const [visible, setVisible] = useState(false)
+    const [cartVisible, setCartVisible] = useState(false)
 
     const onChange = (e: RadioChangeEvent) => {
         setCategory(e.target.value)
@@ -18,9 +22,9 @@ export const Navbar = ({ category, setCategory }: Props): JSX.Element => {
 
     return (
         <section className={s['navbar-container']}>
-            <div className={s['catalog']}>
+            <div onClick={() => setVisible(!visible)} className={s['catalog']}>
                 <AppstoreFilled />
-                <Text onClick={() => setVisible(!visible)} style={{ marginLeft: '0.3rem' }}>Каталог товаров</Text>
+                <Text style={{ marginLeft: '0.3rem' }}>Каталог товаров</Text>
             </div>
             {visible &&
             <div className={s['categories']}>
@@ -35,10 +39,26 @@ export const Navbar = ({ category, setCategory }: Props): JSX.Element => {
                 </Radio.Group>
             </div>
             }
-            <div style={{ padding: '1rem' }}>
+            <div onClick={() => setCartVisible(!cartVisible)} style={{ padding: '1rem' }}>
                 <ShoppingFilled />
                 <Text style={{ marginLeft: '0.3rem' }}>Корзина</Text>
             </div>
+            {cartVisible &&
+            <div className={s['cart']}>
+                {cart.map(product => (
+                    <div>
+                        <div className={s['cart-list-item']}>
+                            <div>{product.title}</div> <div> | </div> <div>{product.price}</div> 
+                            <MinusCircleOutlined 
+                                onClick={() => { removeFromCart(product.title) }}
+                                style={{ color: 'red', marginLeft: '1rem' }}
+                            />                            
+                        </div>
+                        
+                    </div>
+                ))}
+            </div>
+            }
         </section>
     )
 }

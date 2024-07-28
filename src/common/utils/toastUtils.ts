@@ -4,9 +4,9 @@ import { Flip, toast } from "react-toastify";
 export const toastUtils = {
     success: (message: string) => {
         toast.success(message, {
-            position: "top-right",
+            position: "bottom-right",
             autoClose: 2000,
-            hideProgressBar: true,
+            hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
