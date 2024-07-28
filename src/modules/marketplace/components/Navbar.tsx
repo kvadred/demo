@@ -45,6 +45,7 @@ export const Navbar = ({ category, setCategory, cart, removeFromCart }: Props): 
             </div>
             {cartVisible &&
             <div className={s['cart']}>
+                {cart.length === 0 && 'Корзина пуста'}
                 {cart.map(product => (
                     <div>
                         <div className={s['cart-list-item']}>
@@ -52,7 +53,7 @@ export const Navbar = ({ category, setCategory, cart, removeFromCart }: Props): 
                             <MinusCircleOutlined 
                                 onClick={() => { removeFromCart(product.title) }}
                                 style={{ color: 'red', marginLeft: '1rem' }}
-                            />                            
+                            />
                         </div>
                         
                     </div>
