@@ -1,16 +1,21 @@
 
-import { useEffect, useState } from "react"
+import { Dispatch, SetStateAction, useEffect } from "react"
 import ProductGrid from "./components/ProductGrid"
 import { ceramicsItems, bathroomFurnitureItems, floorCoveringsItems, laminamItems, plumbingItems } from "./productItems"
 import { IProduct } from "./types/IProduct"
 import { Navbar } from "./components/Navbar"
 import { toastUtils } from "../../common/utils/toastUtils"
 
-export const MarketPlacePage = (): JSX.Element => {
-    const [cart, setCart] = useState<IProduct[]>([])
-    const [category, setCategory] = useState('')
+interface Props {
+    cart: IProduct[],
+    setCart: Dispatch<SetStateAction<IProduct[]>>,
+    category: string,
+    setCategory: Dispatch<SetStateAction<string>>,
+    products: IProduct[],
+    setProducts: Dispatch<SetStateAction<IProduct[]>>
+}
 
-    const [products, setProducts] = useState<IProduct[]>([])
+export const MarketplacePage = ({ cart, setCart, category, setCategory, products, setProducts }: Props): JSX.Element => {
 
     useEffect(() => {
         switch (category) {

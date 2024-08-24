@@ -16,7 +16,6 @@ interface Props {
     costPerSquareMeter: number
 }
 
-
 export const CostTable = ({ material, service, totalCost, costPerSquareMeter }: Props): JSX.Element => {
     let totalMaterialCost = 0
     const metarialDataSource: DataType[] = material.map((it, index) => {

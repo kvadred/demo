@@ -12,10 +12,7 @@ interface Props {
 
 export const Navbar = ({ nav, setNav }: Props): JSX.Element => {
 
-    const handleClick = (e: any) => {
-        console.log('click ', e)
-        setNav(e.key)
-      }
+    const handleClick = (e: any) => setNav(e.key)
 
     return (
         <>
@@ -23,18 +20,19 @@ export const Navbar = ({ nav, setNav }: Props): JSX.Element => {
                 onClick={handleClick}
                 selectedKeys={[nav]}
                 mode="horizontal">
-                <Menu.Item key="planner">
+                <Menu.Item key="smeta-calculator">
                     <CalculatorOutlined style={{ marginRight: '0.5rem' }} />
-                    Расчет
+                    Смета
+                </Menu.Item>
+                <Menu.Item key="companies-calculator">
+                    <CalculatorOutlined style={{ marginRight: '0.5rem' }} />
+                    Компании
                 </Menu.Item>
                 <Menu.Item key="marketplace">
                     <ShoppingOutlined style={{ marginRight: '0.5rem' }} />
                     Маркетплэйс
                 </Menu.Item>
             </Menu>
-            {/* Navbar
-            <button onClick={() => setNav(0)}>Расчет</button>
-            <button onClick={() => setNav(1)}>Маркетплэйс</button> */}
         </>
     );
 }
