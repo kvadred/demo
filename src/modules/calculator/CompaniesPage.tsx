@@ -14,7 +14,7 @@ const companies: Company[] = [
             mid: 103000,
             max: 160000
         },
-        conditions: []
+        conditions: ['Рассрочка', 'Поэтапная оплата']
     },
     {
         name: 'astanaremont.kz',
@@ -23,7 +23,7 @@ const companies: Company[] = [
             mid: 140000,
             max: 200000
         },
-        conditions: []
+        conditions: ['Рассрочка', 'БЦЦ Кредит']
     },
     {
         name: 'udh.kz',
@@ -32,7 +32,7 @@ const companies: Company[] = [
             mid: 135000,
             max: 195000
         },
-        conditions: []
+        conditions: ['Рассрочка']
     },
     {
         name: 'sheber.pro',
@@ -41,7 +41,7 @@ const companies: Company[] = [
             mid: 124900,
             max: 179900
         },
-        conditions: []
+        conditions: ['БЦЦ Кредит']
     },
 ]
 
