@@ -102,7 +102,6 @@ export const SmetaPage = ({formData, setFormData, costData, setCostData}: Props 
     }
 
     const onFormChange = (key: string, passedValue: any) => {
-        console.log(passedValue)
         let value
         try {
             value = passedValue.target.value 

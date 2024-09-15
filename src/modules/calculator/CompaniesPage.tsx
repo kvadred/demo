@@ -1,9 +1,9 @@
 import { Button, Form, InputNumber, Radio, Select, Space } from 'antd'
 import s from './styles/calculatorPage.module.css'
-import { CompanyCard } from "./components/CompanyCard"
 import { CompanyOffer } from "./types/CompanyOffer"
 import { Company } from "./types/Company"
 import { CompaniesFormData } from "../../App"
+import { CompaniesTable } from './components/CompaniesTable'
 
 
 const companies: Company[] = [
@@ -75,7 +75,6 @@ export const CompaniesPage = ({ formData, setFormData, companyOffers, setCompany
     }
 
     const onFormChange = (key: string, passedValue: any) => {
-        console.log(passedValue)
         let value
         try {
             value = passedValue.target.value 
@@ -86,7 +85,6 @@ export const CompaniesPage = ({ formData, setFormData, companyOffers, setCompany
         const temp: CompaniesFormData = JSON.parse(JSON.stringify(formData))
         // @ts-ignore
         temp[key] = value
-        console.log(temp)
         setFormData(temp)
     }
 
@@ -142,7 +140,8 @@ export const CompaniesPage = ({ formData, setFormData, companyOffers, setCompany
             </Form>
             
             {/* Перечисление компаний */}
-            <section>
+            {/* TODO: remove if will not be necessary */}
+            {/* <section>
                 <div style={{ marginTop: '1rem' }}>
                     <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', width: '100%', alignItems: 'center', flexWrap: 'wrap' }}>
                         {companyOffers.map(offer => {
@@ -157,7 +156,14 @@ export const CompaniesPage = ({ formData, setFormData, companyOffers, setCompany
                         })}
                     </div>
                 </div>
+            </section> */}
+            {companyOffers.length > 0 && 
+            <section>
+                <div style={{ marginTop: '1rem' }}>
+                    <CompaniesTable companyOffers={companyOffers} />
+                </div>
             </section>
+            }
         </section>
     )
 }
