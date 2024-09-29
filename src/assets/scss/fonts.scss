@@ -1,0 +1,7 @@
+@import 'variables';
+
+@mixin roboto-spacing {
+  font-family: 'Roboto', sans-serif;
+  font-size: $base-font-size;
+  letter-spacing: $base-font-size * 0.2;
+}

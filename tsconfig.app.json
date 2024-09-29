@@ -19,9 +19,30 @@
 
     /* Linting */
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": "./",
+    "paths": {
+      "@app/scss": [
+        "src/assets/scss/index.scss"
+      ],
+      "@app/icons": [
+        "src/assets/icons/index.ts"
+      ],
+      "@app/layout": [
+        "src/layout/index.ts"
+      ],
+      "@app/pages": [
+        "src/pages/index.ts"
+      ],
+      "@app/components": [
+        "src/components/index.ts"
+      ],
+      "@app/hooks": [
+        "src/hooks/index.ts"
+      ],
+    },
   },
   "include": ["src"]
 }

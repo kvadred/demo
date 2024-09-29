@@ -2,8 +2,9 @@ import { Button, Form, InputNumber, Radio, Select, Space } from 'antd'
 import s from './styles/calculatorPage.module.css'
 import { CompanyOffer } from "./types/CompanyOffer"
 import { Company } from "./types/Company"
-import { CompaniesFormData } from "../../App"
+
 import { CompaniesTable } from './components/CompaniesTable'
+import {CompaniesFormData} from "../../pages/MainPage/MainPage.tsx";
 
 
 const companies: Company[] = [

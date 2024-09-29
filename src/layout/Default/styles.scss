@@ -1,0 +1,20 @@
+.default {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow: hidden;
+
+  &__content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex: 1 1 auto;
+    overflow: hidden;
+    overflow-y: auto;
+    background-color: green; // TODO: temp
+  }
+}
