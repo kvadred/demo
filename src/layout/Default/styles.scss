@@ -5,6 +5,7 @@
   flex-direction: column;
   flex-wrap: nowrap;
   overflow: hidden;
+  background-color: #EDF2F4;
 
   &__content {
     width: 100%;
@@ -14,7 +15,5 @@
     flex-wrap: nowrap;
     flex: 1 1 auto;
     overflow: hidden;
-    overflow-y: auto;
-    background-color: green; // TODO: temp
   }
 }

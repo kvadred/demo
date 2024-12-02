@@ -13,7 +13,7 @@ export function useHeader(): ReturnType {
   const routes = useMemo(() => [
     {
       label: 'Главная',
-      path: '/demo',
+      path: '/main',
     },
     {
       label: 'Смета',

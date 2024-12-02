@@ -2,6 +2,7 @@ import './styles.scss';
 import {HeaderItem} from "@app/hooks";
 import classNames from "classnames";
 import {Link, useLocation} from "react-router-dom";
+import Button from '../Button';
 
 interface Props {
   items: HeaderItem[];
@@ -16,8 +17,12 @@ function Header(props: Props) {
   return (
     <div className={'header'}>
       <img src={'src/assets/icons/logo_black.svg'} height={64} alt={'logo'}/>
-      {/*TODO: logo refactor*/}
-      <div className={'header__items'}>
+      <Button
+        label='Хочу быть тут'
+        variant='contained'
+        color='primary'
+      />
+      {/* <div className={'header__items'}>
         {items.map(item => (
           <Link
             to={item.path}
@@ -32,7 +37,7 @@ function Header(props: Props) {
             {item.label.toUpperCase()}
           </Link>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }
